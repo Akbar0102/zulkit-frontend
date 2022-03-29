@@ -11,7 +11,7 @@
         <h1 class="text-lg">
           <a class="font-semibold text-black no-underline hover:underline" href="#">{{ title }}</a>
         </h1>
-        <span class="block text-sm font-light text-gray-500 no-underline">{{ title }}</span>
+        <span class="block text-sm font-light text-gray-500 no-underline">{{ description }}</span>
       </header>
     </div>
   </div>
@@ -21,5 +21,6 @@
 defineProps({
   title: String,
   image: String,
+  description: String,
 });
 </script>
