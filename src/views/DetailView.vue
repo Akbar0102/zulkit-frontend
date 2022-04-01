@@ -6,7 +6,7 @@
           class="mb-2 text-3xl font-bold leading-normal tracking-tight text-gray-900 sm:text-4xl md:text-4xl"
         >RoboCrypto UI Kit</h1>
         <p class="text-gray-500">Build your next coin startup</p>
-        <GalleryVue />
+        <Gallery />
         <section class id="orders">
           <h1 class="mt-8 mb-3 text-lg font-semibold">About</h1>
           <div class="text-gray-500">
@@ -102,6 +102,6 @@
 </template>
 
 <script setup>
-import GalleryVue from '@/components/detail/Gallery.vue';
+import Gallery from '@/components/detail/Gallery.vue';
 
 </script>
