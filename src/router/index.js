@@ -23,7 +23,7 @@ const routes = [
     component: RegisterView
   },
   {
-    path: '/product',
+    path: '/product/:id',
     name: 'product',
     component: DetailView
   },

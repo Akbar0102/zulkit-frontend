@@ -3,15 +3,16 @@
     <div class="container flex flex-wrap items-center justify-between mx-auto my-2">
       <logo />
       <navigation-links />
-      <user-info />
+      <auth-button />
     </div>
   </nav>
 </template>
 
-<script>
+<script >
 import Logo from '@/components/layouts/Logo.vue';
 import NavigationLinks from '@/components/layouts/NavigationLinks.vue';
 import UserInfo from '@/components/layouts/UserInfo.vue';
+import AuthButton from '@/components/layouts/AuthButton.vue'
 
 export default {
   name: 'Navbar',
@@ -19,6 +20,7 @@ export default {
     Logo,
     NavigationLinks,
     UserInfo,
-  },
+    AuthButton
+},
 };
 </script>
