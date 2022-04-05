@@ -6,9 +6,9 @@
         v-for="Item in Items"
         :key="Item.id"
         :id="Item.id"
-        :title="Item.title"
-        :description="Item.description"
-        :image="Item.image"
+        :title="Item.name"
+        :description="Item.subtitle"
+        :image="Item.thumbnails"
       />
     </div>
   </div>
@@ -16,11 +16,22 @@
 
 <script setup>
 import ItemsCard from '@/components/ItemsCard.vue';
-import { ref } from '@vue/reactivity';
+import { ref, onMounted } from 'vue';
+const axios = require('axios');
 
-const Items = ref([
-  { id: 1, title: 'Mobile UI Kit', description: 'Mobile UI Kit', image: 'items-1.jpg' },
-  { id: 2, title: 'Online Doctor Consultation', description: 'Mobile UI Kit', image: 'items-2.jpg' },
-  { id: 3, title: 'Banking Crypto', description: 'Mobile UI Kit', image: 'items-3.jpg' },
-]);
+const Items = ref([]);
+
+async function getItemsData() {
+  try {
+    const response = await axios.get('http://zullkit-backend.buildwithangga.id/api/products')
+    const res = response.data
+    Items.value = res.data.data
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+onMounted(() => {
+  getItemsData();
+})
 </script>

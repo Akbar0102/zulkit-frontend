@@ -5,9 +5,9 @@
       <CategoriesCard
         v-for="category in categories"
         :key="category.id"
-        :title="category.title"
-        :count="category.count"
-        :image="category.image"
+        :title="category.name"
+        :count="category.products.length"
+        :image="category.thumbnails"
       />
     </div>
   </div>
@@ -15,12 +15,23 @@
 
 <script setup>
 import CategoriesCard from '@/components/CategoriesCard.vue';
-import { ref } from '@vue/reactivity';
+import { ref, onMounted } from 'vue';
+const axios = require('axios');
 
-const categories = ref([
-  { id: 1, title: 'Mobile UI Kit', count: 731, image: 'categories-1.jpg' },
-  { id: 2, title: 'Fonts', count: 657, image: 'categories-2.jpg' },
-  { id: 3, title: 'Icon Set', count: 83559, image: 'categories-3.jpg' },
-  { id: 4, title: 'Website UI Kit', count: 4500, image: 'categories-4.jpg' },
-]);
+const categories = ref([]);
+
+async function getCategoriesData() {
+  try {
+    const response = await axios.get('http://zullkit-backend.buildwithangga.id/api/categories?show_product=1')
+    const res = response.data
+    categories.value = res.data.data
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+onMounted(() => {
+  getCategoriesData();
+})
+
 </script>
