@@ -5,6 +5,7 @@ import RegisterView from '../views/RegisterView.vue'
 import DetailView from '../views/DetailView.vue'
 import PricingView from '../views/PricingView.vue'
 import SuccessView from '../views/SuccessView.vue'
+import CategoriesView from '../views/CategoriesView.vue'
 
 const routes = [
   {
@@ -26,6 +27,16 @@ const routes = [
     path: '/product/:id',
     name: 'product',
     component: DetailView
+  },
+  {
+    path: '/categories',
+    name: 'categories',
+    component: CategoriesView
+  },
+  {
+    path: '/categories/:id',
+    name: 'category-items',
+    component: () => import('../views/CategoryItems.vue')
   },
   {
     path: '/pricing',
